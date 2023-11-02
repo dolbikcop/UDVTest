@@ -1,14 +1,16 @@
-version: '3'
+version: '3.1'
 
 services:
-  test:
+  server:
     build: .
     container_name: test
-    command: python main.py
+    command: python src/main.py
 #    ports:
 #      - "22:22"
+    env_file:
+      - .env
     volumes:
-      - ./results:/app/src/results
+      - ./results:/src/results
 
 volumes:
   results: null
